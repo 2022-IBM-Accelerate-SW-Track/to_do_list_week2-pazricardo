@@ -1,6 +1,7 @@
 import React from "react";
 import "../component/todos.css";
-import { Card, CardContent, Grid, ListItemButton, ListItemText } from "@mui/material";
+import { Card, CardContent, Grid, ListItemButton, ListItemText, Checkbox } from "@mui/material";
+import { color } from "@mui/system";
 
 // 1. This component formats and returns the list of todos.
 // 2. Treat the question mark like an if statement.
@@ -9,7 +10,7 @@ import { Card, CardContent, Grid, ListItemButton, ListItemText } from "@mui/mate
 // 3. The map function is called to assign each array item with a key
 // 4. Think of lines 14-23 as a loop. For each todo in the todo list, we want to give the list item
 // a key, and it's own card shown in the UI
-const Todos = ({ todos }) => {
+const Todos = ({ todos, deleteTodo }) => {
   const todoList = todos.length ? (
     todos.map((todo) => {
       return (
@@ -18,6 +19,8 @@ const Todos = ({ todos }) => {
             {/* Remember, we set the local state of this todo item when the user submits the form in 
             AddTodo.js. All we need to do is return the todo list item {todo.content} */}
             <ListItemButton component="a" href="#simple-list">
+              {/* need to add color primary to Checkbox */}
+              <Checkbox style={{paddingLeft:0}} primary={color} onClick={() => deleteTodo(todo.id)}></Checkbox> 
               <ListItemText primary={todo.content} secondary={todo.date}/>
             </ListItemButton>
           </Card>

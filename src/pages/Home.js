@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Todos from "../component/todos";
 import AddTodo from "../component/AddTodo";
 import "../pages/Home.css";
+import { id } from "date-fns/locale";
 
 class Home extends Component {
   // Create a default state of this component with an empty list of todos.
@@ -27,6 +28,16 @@ class Home extends Component {
       todos: new_list,
     });
   };
+
+  // The function to delete a Todo item from the Home page
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    this.setState({
+      todos: todos,
+    });
+};
   render() {
     return (
       <div className="Home">
@@ -36,7 +47,7 @@ class Home extends Component {
         <AddTodo addTodo={this.addTodo} />
         {/* When returning the Todos component, todos is a prop passed to the todos.js file
          to format and render the current todo list state */}
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
       </div>
     );
   }
