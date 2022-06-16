@@ -11,7 +11,7 @@ export default class About extends Component {
           <div className="centered">
             <img
               className="profile_image"
-              src={profile_pic}
+              src={profile_pic_name}
               alt="Profile Pic"
             ></img>
           </div>
@@ -20,8 +20,10 @@ export default class About extends Component {
           <div className="centered">
             <div className="name_title">Your Name</div>
             <div className="brief_description">
-              Tell us about yourself in a few sentences. Tell us your interests
-              and say a fun fact about yourself.
+              Hey, My name is Ricardo Paz. I am a student at Michigan State University studying Computer Sciece
+              with a minor in Cognitive Science. I am thrilled to be able to share this experience with y'all.
+
+              Fun Fact: I belly-flopped off a waterfall.
             </div>
           </div>
         </div>
